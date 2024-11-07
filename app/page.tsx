@@ -1,101 +1,150 @@
-import Image from "next/image";
+import PickerSym from "./components/LangaugePicker";
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+  // var Symptom = {
+  //   "0": "itching",
+  //   "1": "skin_rash",
+  //   "2": "nodal_skin_eruptions",
+  //   "3": "continuous_sneezing",
+  //   "4": "shivering",
+  //   "5": "chills",
+  //   "6": "joint_pain",
+  //   "7": "stomach_pain",
+  //   "8": "acidity",
+  //   "9": "ulcers_on_tongue",
+  //   "10": "muscle_wasting",
+  //   "11": "vomiting",
+  //   "12": "burning_micturition",
+  //   "13": "spotting_urination",
+  //   "14": "fatigue",
+  //   "15": "weight_gain",
+  //   "16": "anxiety",
+  //   "17": "cold_hands_and_feets",
+  //   "18": "mood_swings",
+  //   "19": "weight_loss",
+  //   "20": "restlessness",
+  //   "21": "lethargy",
+  //   "22": "patches_in_throat",
+  //   "23": "irregular_sugar_level",
+  //   "24": "cough",
+  //   "25": "high_fever",
+  //   "26": "sunken_eyes",
+  //   "27": "breathlessness",
+  //   "28": "sweating",
+  //   "29": "dehydration",
+  //   "30": "indigestion",
+  //   "31": "headache",
+  //   "32": "yellowish_skin",
+  //   "33": "dark_urine",
+  //   "34": "nausea",
+  //   "35": "loss_of_appetite",
+  //   "36": "pain_behind_the_eyes",
+  //   "37": "back_pain",
+  //   "38": "constipation",
+  //   "39": "abdominal_pain",
+  //   "40": "diarrhoea",
+  //   "41": "mild_fever",
+  //   "42": "yellow_urine",
+  //   "43": "yellowing_of_eyes",
+  //   "44": "acute_liver_failure",
+  //   "45": "fluid_overload",
+  //   "46": "swelling_of_stomach",
+  //   "47": "swelled_lymph_nodes",
+  //   "48": "malaise",
+  //   "49": "blurred_and_distorted_vision",
+  //   "50": "phlegm",
+  //   "51": "throat_irritation",
+  //   "52": "redness_of_eyes",
+  //   "53": "sinus_pressure",
+  //   "54": "runny_nose",
+  //   "55": "congestion",
+  //   "56": "chest_pain",
+  //   "57": "weakness_in_limbs",
+  //   "58": "fast_heart_rate",
+  //   "59": "pain_during_bowel_movements",
+  //   "60": "pain_in_anal_region",
+  //   "61": "bloody_stool",
+  //   "62": "irritation_in_anus",
+  //   "63": "neck_pain",
+  //   "64": "dizziness",
+  //   "65": "cramps",
+  //   "66": "bruising",
+  //   "67": "obesity",
+  //   "68": "swollen_legs",
+  //   "69": "swollen_blood_vessels",
+  //   "70": "puffy_face_and_eyes",
+  //   "71": "enlarged_thyroid",
+  //   "72": "brittle_nails",
+  //   "73": "swollen_extremeties",
+  //   "74": "excessive_hunger",
+  //   "75": "extra_marital_contacts",
+  //   "76": "drying_and_tingling_lips",
+  //   "77": "slurred_speech",
+  //   "78": "knee_pain",
+  //   "79": "hip_joint_pain",
+  //   "80": "muscle_weakness",
+  //   "81": "stiff_neck",
+  //   "82": "swelling_joints",
+  //   "83": "movement_stiffness",
+  //   "84": "spinning_movements",
+  //   "85": "loss_of_balance",
+  //   "86": "unsteadiness",
+  //   "87": "weakness_of_one_body_side",
+  //   "88": "loss_of_smell",
+  //   "89": "bladder_discomfort",
+  //   "90": "foul_smell_ofurine",
+  //   "91": "continuous_feel_of_urine",
+  //   "92": "passage_of_gases",
+  //   "93": "internal_itching",
+  //   "94": "toxic_look_(typhos)",
+  //   "95": "depression",
+  //   "96": "irritability",
+  //   "97": "muscle_pain",
+  //   "98": "altered_sensorium",
+  //   "99": "red_spots_over_body",
+  //   "100": "belly_pain",
+  //   "101": "abnormal_menstruation",
+  //   "102": "dischromic_patches",
+  //   "103": "watering_from_eyes",
+  //   "104": "increased_appetite",
+  //   "105": "polyuria",
+  //   "106": "family_history",
+  //   "107": "mucoid_sputum",
+  //   "108": "rusty_sputum",
+  //   "109": "lack_of_concentration",
+  //   "110": "visual_disturbances",
+  //   "111": "receiving_blood_transfusion",
+  //   "112": "receiving_unsterile_injections",
+  //   "113": "coma",
+  //   "114": "stomach_bleeding",
+  //   "115": "distention_of_abdomen",
+  //   "116": "history_of_alcohol_consumption",
+  //   "117": "fluid_overload",
+  //   "118": "blood_in_sputum",
+  //   "119": "prominent_veins_on_calf",
+  //   "120": "palpitations",
+  //   "121": "painful_walking",
+  //   "122": "pus_filled_pimples",
+  //   "123": "blackheads",
+  //   "124": "scurring",
+  //   "125": "skin_peeling",
+  //   "126": "silver_like_dusting",
+  //   "127": "small_dents_in_nails",
+  //   "128": "inflammatory_nails",
+  //   "129": "blister",
+  //   "130": "red_sore_around_nose",
+  //   "131": "yellow_crust_ooze",
+  //   "132": "prognosis"
+  // }
+
+
+  return (
+    <div>
+
+    <PickerSym/>
     </div>
   );
 }
